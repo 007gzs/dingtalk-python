@@ -70,6 +70,10 @@ def create_app(app_config, datetime_format='%Y-%m-%d %H:%M:%S'):
     CustomJSONEncoder.datetime_format = datetime_format
     app.json_encoder = CustomJSONEncoder
 
+    @app.route('/', methods=['GET'])
+    def index():
+        return '<h1>Hello DingTalk</h1>'
+
     return app
 
 if __name__ == '__main__':

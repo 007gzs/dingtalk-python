@@ -11,7 +11,7 @@ from flask import Blueprint
 __author__ = 'blackmatrix'
 
 # 蓝图注册
-user = Blueprint('user', __name__)
+login = Blueprint('login', __name__)
 
 
 if __name__ == '__main__':

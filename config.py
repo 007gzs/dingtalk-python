@@ -6,6 +6,7 @@
 # @Blog : http://www.cnblogs.com/blackmatrix/
 # @File : config.py
 # @Software: PyCharm
+import sys
 from toolkit.config import BaseConfig, get_current_config
 
 __author__ = 'blackmatrix'
@@ -56,7 +57,19 @@ devcfg = DevConfig()
 configs = {'default': default,
            'devcfg': devcfg}
 
+
 # 读取配置文件的名称，在具体的应用中，可以从环境变量、命令行参数等位置获取配置文件名称
-config_name = 'default'
+def get_config_name():
+    """
+    获取配置文件名称
+    :return:
+    """
+    for argv in sys.argv:
+        if '-env' in argv or '-e' in argv:
+            return sys.argv[1][sys.argv[1].find('=') + 1:]
+    else:
+        return 'default'
+
+config_name = get_config_name()
 
 current_config = get_current_config(config_name)

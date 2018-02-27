@@ -34,7 +34,9 @@ class CustomManager(Manager):
 
     def init_app(self, app):
         self.app = app
+        # 增加db命令
         self.add_command('db', MigrateCommand)
+        # 增加配置文件名的选项
         self.add_option('-e', '--env', dest='app_config', required=False)
 
 

@@ -48,6 +48,8 @@ class CommonConfig(BaseConfig):
     DING_SESSION_MANAGER = ding_session_manager
 
     # 以下为dingtalk-python管理界面admin使用，如不使用管理界面，无需配置以下项目
+    HOST = '0.0.0.0'
+    PORT = 8080
 
 
 class DevConfig(CommonConfig):

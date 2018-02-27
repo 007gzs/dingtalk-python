@@ -9,6 +9,7 @@
 from flask import Flask
 from decimal import Decimal
 from datetime import datetime
+from admin.exts import manager
 from flask.json import JSONEncoder
 
 __author__ = 'blackmatrix'
@@ -48,7 +49,7 @@ def register_extensions(app):
     :param app:
     :return:
     """
-    pass
+    manager.init_app(app)
 
 
 def create_app(app_config, datetime_format='%Y-%m-%d %H:%M:%S'):

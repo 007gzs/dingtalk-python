@@ -4,15 +4,20 @@
 # @Author : Matrix
 # @Github : https://github.com/blackmatrix7/
 # @Blog : http://www.cnblogs.com/blackmatrix/
-# @File : manage.py.py
+# @File : manage.py
 # @Software: PyCharm
 from admin import create_app
+from admin.exts import manager
 from config import current_config
 
 __author__ = 'blackmatrix'
 
-flask_app = create_app(current_config)
+dingtalk_admin = create_app(current_config)
 
+
+@manager.command
+def devserver():
+    dingtalk_admin.run(host=dingtalk_admin.config['HOST'], port=dingtalk_admin.config['PORT'])
 
 if __name__ == '__main__':
-    pass
+    manager.run()
